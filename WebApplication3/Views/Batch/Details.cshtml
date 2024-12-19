@@ -1,0 +1,82 @@
+﻿@model WebApplication3.Models.batch
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<style>
+    body,
+    p,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    a {
+        font-family: "Poppins", sans-serif;
+    }
+
+    .opening {
+        margin-top: 50px;
+    }
+
+    .opening h2 {
+        font-size: 40px;
+    }
+
+    .opening p {
+        font-size: 1.2rem;
+    }
+
+    .back {
+        margin-left: 10px;
+        padding: 10px 15px;
+        font-size: 15px;
+        text-align: center;
+        text-decoration: none;
+        cursor: pointer;
+        border: 1px solid;
+        border-radius: 10px;
+        color: #ffffff;
+        background-color: #5164C8;
+        transition: background-color 0.3s, color 0.3s;
+    }
+
+    .back:hover {
+        background-color: #00199C;
+        color: #fafafa;
+    }
+</style>
+
+<div class="opening">
+    <h2>Details Batch</h2>
+    <p></p>
+</div>
+
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.batch1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.batch1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.year)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.year)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }, new { @class = "btn btn-primary", style = "background-color: green" })
+    @Html.ActionLink("Back to List", "Index", new { id = Model.id }, new { @class = "back" })
+</p>

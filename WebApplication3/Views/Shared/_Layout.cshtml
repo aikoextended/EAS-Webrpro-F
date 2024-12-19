@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - SMS Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+    <style>
+        body,
+        p,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        a {
+            font-family: "Poppins", sans-serif;
+        }
+
+        .navbar {
+            height: 100px;
+        }
+
+        .bg-custom {
+            background: linear-gradient( to right, #8a48f4, #a051d1, #d27c6f, #ffb712 );
+            background-color: #542870;
+        }
+
+        .navbar-nav .nav-link {
+            font-size: 20px;
+            color: #fafafa;
+            font-weight: 500;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #ffb712;
+        }
+
+        .navbar-nav .nav-link:active,
+        .navbar-nav .nav-link.active {
+            color: #ffb712;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm bg-custom">
+        <div class="container">
+            <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
+                <ul class="navbar-nav flex-grow-1">
+                    <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "nav-link " + (ViewContext.RouteData.Values["Controller"].ToString() == "Home" ? "active" : "") })</li>
+                    <li>@Html.ActionLink("Course", "Index", "Course", new { area = "" }, new { @class = "nav-link " + (ViewContext.RouteData.Values["Controller"].ToString() == "Course" ? "active" : "") })</li>
+                    <li>@Html.ActionLink("Batch", "Index", "Batch", new { area = "" }, new { @class = "nav-link " + (ViewContext.RouteData.Values["Controller"].ToString() == "Batch" ? "active" : "") })</li>
+                    <li>@Html.ActionLink("Registation", "Index", "Registation", new { area = "" }, new { @class = "nav-link " + (ViewContext.RouteData.Values["Controller"].ToString() == "Registation" ? "active" : "") })</li>
+                    <li>@Html.ActionLink("User", "Index", "User", new { area = "" }, new { @class = "nav-link " + (ViewContext.RouteData.Values["Controller"].ToString() == "User" ? "active" : "") })</li>
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Student Management System Application</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
+

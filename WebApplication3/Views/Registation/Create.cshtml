@@ -1,0 +1,151 @@
+﻿@model WebApplication3.Models.registation
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<style>
+    body,
+    p,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    a {
+        font-family: "Poppins", sans-serif;
+    }
+
+    .opening {
+        margin-top: 50px;
+    }
+
+    .opening h2 {
+        font-size: 40px;
+    }
+
+    .opening p {
+        font-size: 1.2rem;
+    }
+
+    .btn-default {
+        margin-top: 20px;
+        padding: 10px 15px;
+        font-size: 15px;
+        text-align: center;
+        text-decoration: none;
+        cursor: pointer;
+        border: 1px solid;
+        border-radius: 10px;
+        color: #ffffff;
+        background: linear-gradient(to right, #8a48f4, #d27c6f);
+        transition: background-color 0.3s, color 0.3s;
+    }
+
+   .btn-default:hover {
+        background: linear-gradient(to right, #6e38cc, #a86a5a);
+        color: #fafafa;
+    }
+
+    .back {
+        margin-top: 20px;
+    }
+
+    .back a {
+        padding: 10px 15px;
+        font-size: 15px;
+        text-align: center;
+        text-decoration: none;
+        cursor: pointer;
+        border: 1px solid;
+        border-radius: 10px;
+        color: #ffffff;
+        background-color: #5164C8;
+        transition: background-color 0.3s, color 0.3s;
+    }
+
+    .back:hover a {
+        background-color: #00199C;
+        color: #fafafa;
+    }
+</style>
+
+<div class="opening">
+    <h2>Create Registation</h2>
+    <p>This form is used to add student enrollment for the course.</p>
+</div>
+
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>registation</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.firstname, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.firstname, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.firstname, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.lastname, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.lastname, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.lastname, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.nic, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.nic, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.nic, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.course_id, "course_id", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("course_id", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.course_id, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.batch_id, "batch_id", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("batch_id", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.batch_id, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.telno, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.telno, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.telno, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div class="back">
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
